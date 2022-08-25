@@ -36,7 +36,8 @@ jobs:
        # Runs the shell command
       - name: Run a multi-line script
         run: |
-          echo ${{ steps.vars.outputs.tag }}
+         tag = sh script: 'git rev-parse HEAD', returnStdout: true
+         echo $tag
 
       # Runs the shell command
       - name: Run a multi-line script
