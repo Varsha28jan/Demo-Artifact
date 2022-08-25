@@ -30,6 +30,13 @@ jobs:
       # build containers
       - name: Run Docker File
         run: docker build . -t my-server:my-server
+        
+        
+        
+       # Runs the shell command
+      - name: Run a multi-line script
+        run: |
+          echo ${{ steps.vars.outputs.tag }}
 
       # Runs the shell command
       - name: Run a multi-line script
