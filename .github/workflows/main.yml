@@ -32,12 +32,12 @@ jobs:
         run: docker build . -t my-server:my-server
         
         
-        
+      
        # Runs the shell command
-      - name: Run a multi-line script
-        run: |
-         tag = sh script: 'git rev-parse HEAD', returnStdout: true
-         echo $tag
+      #- name: Run a multi-line script
+      #  run: |
+       #  tag = sh script: 'git rev-parse HEAD', returnStdout: true
+        # echo $tag
 
       # Runs the shell command
       - name: Run a multi-line script
