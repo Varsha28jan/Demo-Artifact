@@ -38,6 +38,15 @@ jobs:
       #  run: |
        #  tag = sh script: 'git rev-parse HEAD', returnStdout: true
         # echo $tag
+        
+        
+       # Runs the shell command
+      - name: Run a multi-line script
+        run: |
+          git_hash=$(git rev-parse --short "$GITHUB_SHA")
+          git_branch=${GITHUB_REF#refs/heads/}
+          echo "$git_hash"
+          echo "$git_branch"
 
       # Runs the shell command
       - name: Run a multi-line script
