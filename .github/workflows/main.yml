@@ -36,6 +36,6 @@ jobs:
           git_branch=${GITHUB_REF#refs/heads/}
           echo "$git_hash"
           echo "$git_branch"
-          user=${{ secrets.DOCKER_USERNAME }}
+          user= ${{ secrets.DOCKER_HUB_USERNAME }}
           echo "$user"
     
