@@ -47,7 +47,8 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: ./Dockerfile
+          image: webserver
+          file: Dockerfile
+          tags: ${{steps.v1.git_hash}}
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/webserver:${{steps.v1.git_hash}}
+         ## tags: ${{ secrets.DOCKER_HUB_USERNAME }}/webserver:${{steps.v1.git_hash}}
