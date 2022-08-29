@@ -37,5 +37,5 @@ jobs:
           echo "$git_hash"
           echo "$git_branch"
           user=${{ secrets.DOCKER_USERNAME }}
-          echo ${{user}}
+          echo "$user"
     
