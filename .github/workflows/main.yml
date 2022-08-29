@@ -37,6 +37,7 @@ jobs:
         
         # Runs the shell command
       - name: Run a multi-line script
+        id: v1
         run: |
           git_hash=$(git rev-parse --short "$GITHUB_SHA")
           git_branch=${GITHUB_REF#refs/heads/}
@@ -49,4 +50,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/webserver:${{git_hash}}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/webserver:${{steps.v1.git_hash}}
