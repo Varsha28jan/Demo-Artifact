@@ -39,6 +39,16 @@ jobs:
           user=${{ secrets.DOCKER_HUB_USERNAME }}
           echo "$user"
           
+          
+      - name: Run a multi-line script
+        #id: v1
+        run: |
+          out=`cat README.md | grep master | awk -F "-" {'print $2'}`
+          echo $out
+          echo "${{steps.v1.git_hash}}"
+          echo "${{steps.v1}}"
+          sed -i "s/$out/$steps.v1.git_hash/g" README.md
+          
       - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
@@ -49,14 +59,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
           
-      - name: Run a multi-line script
-        #id: v1
-        run: |
-          out=`cat README.md | grep master | awk -F "-" {'print $2'}`
-          echo $out
-          echo "${{steps.v1.git_hash}}"
-          echo "${{steps.v1}}"
-          sed -i "s/$out/$steps.v1.git_hash/g" README.md
+     
      
 
     
