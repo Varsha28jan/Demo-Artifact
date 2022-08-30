@@ -70,7 +70,7 @@ jobs:
           echo $out
           echo "${{ steps.vars.outputs.sha_short }}"
           echo "tag = master ${{ steps.vars.outputs.sha_short }}"
-          echo "tag = master-$var1" > README.md
+          echo "tag = master-${{ steps.vars.outputs.sha_short }}" > README.md
           
        
 
