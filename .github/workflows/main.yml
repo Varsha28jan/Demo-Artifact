@@ -48,4 +48,12 @@ jobs:
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          
+      - name: Run a multi-line script
+        #id: v1
+        run: |
+          out=`cat readme.txt | grep master | awk -F "-" {'print $2'}`
+          echo $out
+          sed -i "s/$out/$git_hash/g" readme.txt
+
     
