@@ -93,8 +93,6 @@ jobs:
         uses: devops-infra/action-commit-push@master
         with:
           github_token: "${{ secrets.MY_TOKEN }}"
-          add_timestamp: true
-          commit_prefix: "[AUTO]"
           commit_message: "Automatic commit"
           
 
