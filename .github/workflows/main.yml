@@ -40,15 +40,7 @@ jobs:
           echo "$user"
           
           
-      - name: Run a multi-line script
-        #id: v1
-        run: |
-          out=`cat README.md | grep master | awk -F "-" {'print $2'}`
-          echo $out
-          echo "${{steps.v1.git_hash}}"
-          echo ${{steps.v1.git_hash}}
-          echo "${{steps.v1}}"
-          sed -i "s/$out/$steps.v1.git_hash/g" README.md
+    
           
           
      # - name: Get Hash
@@ -69,6 +61,17 @@ jobs:
         run: |
           echo "Branch: ${{ steps.vars.outputs.branch }}"
           echo "Sha: ${{ steps.vars.outputs.sha_short }}"
+          
+          
+      - name: Run a multi-line script
+        #id: v1
+        run: |
+          out=`cat README.md | grep master | awk -F "-" {'print $2'}`
+          echo $out
+          echo "Sha: ${{ steps.vars.outputs.sha_short }}"
+          sed -i "s/$out/$steps.vars.outputs.sha_short/g" README.md
+          
+      
           
      
      
