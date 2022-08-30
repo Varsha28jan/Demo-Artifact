@@ -68,8 +68,8 @@ jobs:
         run: |
           out=`cat README.md | grep master | awk -F "-" {'print $2'}`
           echo $out
-          echo "Sha: ${{ steps.vars.outputs.sha_short }}"
-          sed -i "s/$out/Sha: ${{ steps.vars.outputs.sha_short}}/g" README.md
+          echo "${{ steps.vars.outputs.sha_short }}"
+          sed -i "s/$out/${{ steps.vars.outputs.sha_short}}/g" README.md
           
       
           
