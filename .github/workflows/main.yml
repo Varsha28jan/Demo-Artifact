@@ -70,7 +70,8 @@ jobs:
           echo $out
           var1= echo "${{ steps.vars.outputs.sha_short }}"
           echo $var1
-          sed -i "s/${out}/${var1}/g" README.md
+            #sed -i "s/${out}/${var1}/g" README.md
+          echo "tag=master-${var1}" > README.md
           
        
 
