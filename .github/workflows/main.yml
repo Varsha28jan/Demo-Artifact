@@ -74,6 +74,8 @@ jobs:
           awk "{sub(/$out/,$var1);print}" README.md > README.md
             #  sed -i "s/${out}/${steps.vars.outputs.sha_short}/g" README.md
           cat README.md
+          pwd
+          echo $(pwd)
           
        
 
