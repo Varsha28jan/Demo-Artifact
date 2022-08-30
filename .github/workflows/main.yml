@@ -54,6 +54,6 @@ jobs:
         run: |
           out=`cat README.md | grep master | awk -F "-" {'print $2'}`
           echo $out
-          sed -i "s/$out/$git_hash/g" readme.txt
+          sed -i "s/$out/$git_hash/g" README.md
 
     
