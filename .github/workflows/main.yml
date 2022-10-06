@@ -50,7 +50,7 @@ jobs:
      # - name: Check Hash
      #   run: echo "${{ env.hash }}"
 
-      - name: Declare some variables
+      - name: Declare some vaiable 
         id: vars
         shell: bash
         run: |
