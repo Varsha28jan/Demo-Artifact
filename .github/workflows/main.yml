@@ -68,7 +68,7 @@ jobs:
           out=`cat README.md | grep master | awk -F "-" {'print $2'}`
           echo $out
           var1=${{ steps.vars.outputs.sha_short }}
-          echo $var1
+          echo "$var1"
           echo "${{ steps.vars.outputs.sha_short }}"
           echo "tag = master ${{ steps.vars.outputs.sha_short }}"
           # awk "{sub(/$out/,$var1);print}" README.md > README.md
