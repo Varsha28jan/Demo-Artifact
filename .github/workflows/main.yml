@@ -91,7 +91,8 @@ jobs:
           
       - name: docker run 
         run:  | 
-           echo ${{ steps.v1.git_hash }}
+           varr1=${{ steps.v1.git_hash }}
+           echo $varr1
            docker run -d --name mycontainer -p 8888:8888 vmna11/webserver:"${{steps.v1.git_hash}}"
           
       - name: Run the Action
